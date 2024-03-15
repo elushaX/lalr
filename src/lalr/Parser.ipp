@@ -753,6 +753,9 @@ void Parser<Iterator, UserData, Char, Traits, Allocator>::error( bool* accepted,
         else
         {
             nodes_.pop_back();
+#ifdef USERDATA_DESTROY_FAILED_TREE_ROOTS
+						user_data_.back().destroy();
+#endif
             user_data_.pop_back();
         }
     }

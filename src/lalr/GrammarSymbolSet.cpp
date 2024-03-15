@@ -27,16 +27,16 @@ GrammarSymbolSet::GrammarSymbolSet( size_t symbols )
 }
 
 GrammarSymbolSet::GrammarSymbolSet( GrammarSymbolSet&& set )
-: set_( std::move(set.set_) )
-, minimum_(numeric_limits<size_t>::max())
-, maximum_(numeric_limits<size_t>::min())
+: set_( std::move(set.set_) ),
+	minimum_(set.minimum_),
+	maximum_(set.maximum_)
 {
 }
 
 GrammarSymbolSet::GrammarSymbolSet( const GrammarSymbolSet& set )
-: set_( set.set_ )
-, minimum_(numeric_limits<size_t>::max())
-, maximum_(numeric_limits<size_t>::min())
+: set_( set.set_ ),
+	minimum_(set.minimum_),
+	maximum_(set.maximum_)
 {
 }
 
